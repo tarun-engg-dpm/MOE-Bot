@@ -1,0 +1,22 @@
+[
+    {
+        "role": "system",
+        "content": "You are a helpful assistant."
+    },
+    {
+        "role": "user",
+        "content": "hey give me the recipie of jelabi"
+    },
+    {
+        "role": "assistant",
+        "content": "Of course! Here's a traditional recipe for making **Jalebi**, a popular Indian dessert that is crispy, syrupy, and delightful:\n\n---\n\n### Ingredients:\n\n#### For the Jalebi Batter:\n- **1 cup** All-purpose flour (maida)\n- **2 tablespoons** Cornflour (or gram flour \u2013 besan, if preferred)\n- **1/4 teaspoon** Turmeric powder (optional, for color)\n- **1/2 teaspoon** Baking powder (or 1/4 tsp baking soda)\n- **1 tablespoon** Yogurt/curd\n- **3/4 cup** Water (adjust consistency as needed)\n- **1/2 teaspoon** Vinegar or Lemon Juice (to help ferment)\n- A pinch of **cardamom powder** (optional)\n- A few drops of yellow or orange food coloring (optional)\n\n#### For the Sugar Syrup:\n- **1 1/4 cups** Sugar\n- **3/4 cup** Water\n- **1/4 teaspoon** Saffron strands (optional)\n- **1/4 teaspoon** Cardamom powder\n- **1/2 teaspoon** Lemon Juice (to prevent crystallization)\n\n#### For Frying:\n- Ghee or Oil (or a mixture of both)\n\n---\n\n### Instructions:\n\n#### Step 1: Prepare the Batter\n1. In a large mixing bowl, combine the all-purpose flour, cornflour (or besan), turmeric powder, baking powder, and cardamom powder (if using).\n2. Add the yogurt and mix well.\n3. Gradually add water to create a smooth batter with a thick, flowing consistency. The batter should be lump-free.\n4. Add vinegar or lemon juice, and mix well. This will create a slight fermentation effect for the batter.\n5. Cover and let the batter rest for 30 minutes (or up to 1 hour for better fermentation).\n\n#### Step 2: Prepare the Sugar Syrup\n1. In a saucepan, combine sugar and water. Heat over medium flame and stir until the sugar dissolves completely.\n2. Let it simmer for 5\u20137 minutes, stirring occasionally, until the syrup reaches a sticky, one-thread consistency (when you pinch the syrup between your fingers, it should stretch like a thread).\n3. Add saffron strands, cardamom powder, and lemon juice. Mix well and keep the syrup warm, but not boiling.\n\n#### Step 3: Fry the Jalebis\n1. Heat ghee or oil in a deep frying pan/kadai over medium heat. The oil should not be too hot, or the jalebis will burn.\n2. Pour the batter into a piping bag or squeeze bottle with a small nozzle. Alternatively, use a cloth with a small hole or even a sturdy plastic bag with a tip cut off.\n3. Pipe the batter into the hot oil in a circular and spiral pattern to create traditional jalebi shapes.\n4. Fry the jalebis until they turn golden and crispy on both sides. Flip carefully with a slotted spoon.\n\n#### Step 4: Soak in Sugar Syrup\n1. Remove the fried jalebis and immediately immerse them into the warm sugar syrup.\n2. Let the jalebis soak in the syrup for 1\u20132 minutes, ensuring they absorb the sweetness.\n3. Remove from the syrup and let them cool slightly.\n\n#### Step 5: Serve\nEnjoy the jalebis warm, crispy, and syrupy! Serve them as they are or pair with rabri (thickened sweet milk) for an extra treat.\n\n---\n\n### Tips:\n- If you prefer a slightly tangy flavor, let the batter rest for longer to ferment more.\n- Use a squeeze bottle for perfect, consistent shapes.\n- Keep the sugar syrup warm to maintain the desired texture.\n\nLet me know if you have any questions! \ud83d\ude0a"
+    },
+    {
+        "role": "user",
+        "content": "thanks"
+    },
+    {
+        "role": "assistant",
+        "content": "You're welcome! \ud83d\ude0a Enjoy making and devouring those delightful jalebis! If you have any more questions or need help with another recipe, feel free to ask. Happy cooking! \ud83c\udf74\u2728"
+    }
+]
