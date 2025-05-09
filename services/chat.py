@@ -2,10 +2,11 @@ from services.user_query_context import UserQueryContext
 
 
 class ChatApplication:
-    def __init__(self, chat_api, chat_history, query_processor):
+    def __init__(self, chat_api, chat_history, query_processor, seg_ai_chat):
         self.chat_api = chat_api
         self.chat_history = chat_history
         self.query_processor = query_processor
+        self.seg_ai_chat = seg_ai_chat
 
     def new_conversation(self):
         print("Starting a new modular conversation. Type 'exit' to end.")
@@ -79,13 +80,47 @@ class ChatApplication:
             conversation.append({"role": "assistant", "content": structured_output})
             loaded_data.append({"Improved Query": improved_query, "Structured Output": structured_output})
 
+    def new_seg_ai_conversation(self):
+        print("Starting a new SegAI conversation. Type 'exit' to end.")
+        print("Sample prompts: ")
+        sample_prompts_dict = self.seg_ai_chat.get_sample_prompts().get("sample-prompts", {})
+        indexed_prompts = {}
+        num_prompts = len(sample_prompts_dict)
+        i = 1
+        for key, value in sample_prompts_dict.items():
+            print(f"{i}. {value}")
+            indexed_prompts[str(i)] = value  # Store the mapping of number to key
+            i += 1
+        print(f"{i}. Custom prompt")
+        while True:
+            print(f"Enter a number to select a sample prompt or {i} for custom prompt , anything else to exit.")
+            user_input = input("Enter your choice: ")
+            if user_input in indexed_prompts or user_input == f"{i}":
+                if user_input in indexed_prompts:
+                    selected_prompt = indexed_prompts[user_input]
+                else:
+                    selected_prompt = input("Enter your custom prompt: ")
+                prompt_filter = self.seg_ai_chat.generate_filter(selected_prompt, regenerate=False)
+                print(prompt_filter)
+                while True:
+                    regenerate = input("Do you want to regenerate the filter? (y/n)")
+                    if regenerate.lower() == 'y':
+                        prompt_filter = self.seg_ai_chat.generate_filter(selected_prompt, regenerate=True)
+                        print(prompt_filter)
+                    else:
+                        break
+            else:
+                print("Ending SegAI conversation.")
+                break
+
     def main_menu(self):
         while True:
             print("\n--- Modular Chat Application Menu ---")
-            print("1. Start a new conversation")
-            print("2. Continue a saved conversation")
-            print("3. View saved conversations")
-            print("4. Exit")
+            print("1. Start a new conversation.")
+            print("2. Continue a saved conversation.")
+            print("3. View saved conversations.")
+            print("4. Generate segmentation filters.")
+            print("5. Exit.")
             choice = input("Select an option: ")
 
             if choice == "1":
@@ -95,7 +130,7 @@ class ChatApplication:
             elif choice == "3":
                 self.chat_history.list_histories()
             elif choice == "4":
+                self.new_seg_ai_conversation()
+            else:
                 print("Exiting the application. Goodbye!")
                 break
-            else:
-                print("Invalid choice. Please try again.")
