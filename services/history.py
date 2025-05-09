@@ -1,6 +1,8 @@
 import os
 import json
+from colorama import Fore, init
 
+init(autoreset=True)
 
 class ChatHistory:
     def __init__(self, history_dir="chat_history"):
@@ -21,7 +23,7 @@ class ChatHistory:
         else:
             print("\nSaved Conversations:")
             for i, file in enumerate(files, 1):
-                print(f"{i}. {file}")
+                print(Fore.BLUE + f"{i}. {file}")
         return files
 
     def load_history(self, filename):
