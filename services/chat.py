@@ -1,5 +1,7 @@
 from services.user_query_context import UserQueryContext
+from colorama import Fore, init
 
+init(autoreset=True)
 
 class ChatApplication:
     def __init__(self, chat_api, chat_history, query_processor, seg_ai_chat):
@@ -25,7 +27,7 @@ class ChatApplication:
             if not improved_query:
                 print("\n[S0] Failed to improve query after retries. Moving to the next interaction.")
                 continue
-            print(f"\nS0 Improved Query: {improved_query}")
+            print(Fore.GREEN + f"\nS0 Improved Query: {improved_query}")
 
             print("\n[Processing improved query with S1 for a structured response...]")
             structured_output = self.query_processor.structuring_query(
@@ -36,7 +38,7 @@ class ChatApplication:
             if not structured_output:
                 print("\n[S1] Failed to generate structured response after retries. Moving to the next interaction.")
                 continue
-            print(f"\nS1 Structured Output:\n{structured_output}")
+            print(Fore.GREEN + f"\nS1 Structured Output:\n{structured_output}")
 
             conversation.append({"role": "user", "content": improved_query})
             conversation.append({"role": "assistant", "content": structured_output})
@@ -85,7 +87,6 @@ class ChatApplication:
         print("Sample prompts: ")
         sample_prompts_dict = self.seg_ai_chat.get_sample_prompts().get("sample-prompts", {})
         indexed_prompts = {}
-        num_prompts = len(sample_prompts_dict)
         i = 1
         for key, value in sample_prompts_dict.items():
             print(f"{i}. {value}")
@@ -101,12 +102,12 @@ class ChatApplication:
                 else:
                     selected_prompt = input("Enter your custom prompt: ")
                 prompt_filter = self.seg_ai_chat.generate_filter(selected_prompt, regenerate=False)
-                print(prompt_filter)
+                print(Fore.GREEN + f"{prompt_filter}")
                 while True:
                     regenerate = input("Do you want to regenerate the filter? (y/n)")
                     if regenerate.lower() == 'y':
                         prompt_filter = self.seg_ai_chat.generate_filter(selected_prompt, regenerate=True)
-                        print(prompt_filter)
+                        print(Fore.GREEN + f"{prompt_filter}")
                     else:
                         break
             else:
