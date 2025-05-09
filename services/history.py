@@ -1,4 +1,5 @@
 import os
+import json
 
 
 class ChatHistory:

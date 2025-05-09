@@ -1,0 +1,5 @@
+requests
+sentence_transformers
+langchain
+faiss-cpu
+langchain_community

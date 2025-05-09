@@ -1,3 +1,6 @@
+from services.user_query_context import UserQueryContext
+
+
 class ChatApplication:
     def __init__(self, chat_api, chat_history, query_processor):
         self.chat_api = chat_api
@@ -24,7 +27,11 @@ class ChatApplication:
             print(f"\nS0 Improved Query: {improved_query}")
 
             print("\n[Processing improved query with S1 for a structured response...]")
-            structured_output = self.query_processor.structuring_query(improved_query, conversation, context="") # ADD Context
+            structured_output = self.query_processor.structuring_query(
+                improved_query,
+                conversation,
+                context=UserQueryContext().get_query_context(improved_query, 5)
+            )
             if not structured_output:
                 print("\n[S1] Failed to generate structured response after retries. Moving to the next interaction.")
                 continue
@@ -59,7 +66,11 @@ class ChatApplication:
                 print("\n[S0] Failed to improve the query after retries. Moving to the next interaction.")
                 continue
 
-            structured_output = self.query_processor.structuring_query(improved_query, conversation, context="")#ADD context
+            structured_output = self.query_processor.structuring_query(
+                improved_query,
+                conversation,
+                context=UserQueryContext().get_query_context(improved_query, 5)
+            )
             if not structured_output:
                 print("\n[S1] Failed to get structured response after retries. Moving to the next interaction.")
                 continue
